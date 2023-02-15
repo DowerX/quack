@@ -1,0 +1,73 @@
+#posts {
+    margin-bottom: 50px;
+}
+
+#posts li {
+    border-top: 1px solid var(--separator-color);
+    padding: 0 30px;
+}
+
+#posts li>div {
+    background-color: var(--background-color);
+    margin: 30px auto;
+    padding: 0px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 3px var(--separator-color));
+}
+
+#posts .profile-picture {
+    width: 64px;
+    margin: 20px 0 0 20px;
+    border-radius: 100%;
+    filter: drop-shadow(0 0 3px var(--separator-color));
+}
+
+#posts span {
+    position: relative;
+    display: inline-block;
+    top: -28px;
+    left: 10px;
+}
+
+#posts a {
+    height: 0;
+    display: inline-block;
+}
+
+#posts p {
+    padding: 0 20px 20px 20px;
+}
+
+#posts .embed {
+    max-width: 400px;
+    width: 90%;
+    border-radius: 5px;
+    margin: auto;
+    padding-bottom: 20px;
+    display: block;
+    filter: drop-shadow(0 0 5px var(--separator-color-alt));
+}
+
+.interact {
+    padding: 0 20px 10px;
+    justify-content: space-evenly;
+    display: flex;
+    height: 32px;
+    text-align: center;
+}
+.interact a {
+    position: relative;
+    transform: translateY(-10px);
+}
+
+.interact img {
+    width: 32px;
+    position: relative;
+    transform: translateY(10px);
+}
+
+.liked {
+    filter: invert(18%) sepia(87%) saturate(6912%) hue-rotate(3deg) brightness(101%) contrast(122%) !important;
+}

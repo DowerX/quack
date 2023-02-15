@@ -1,0 +1,79 @@
+:root {
+    --pointer-size: 100px;
+    --login-box-width: 300px;
+    --login-box-height: 400px;
+}
+
+html {
+    overflow: hidden;
+}
+
+main {
+    background-image: url("/img/login-bg.webp") !important;
+    background-size: cover;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.blur-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    cursor: none;
+}
+
+#pointer {
+    position: absolute;
+    top: calc(var(--pos-y) - (var(--pointer-size)/2));
+    left: calc(var(--pos-x) - (var(--pointer-size)/2));
+    width: var(--pointer-size);
+    height: var(--pointer-size);
+    border-radius: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.327) 0%, transparent 80%);
+    z-index: 5;
+}
+
+#login-box {
+    position: absolute;
+    width: var(--login-box-width);
+    height: var(--login-box-height);
+    background-color: var(--background-color);
+    top: calc((100vh - var(--login-box-height)) / 2);
+    left: calc((100vw - var(--login-box-width)) / 2);
+    z-index: 10;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 5px var(--background-color));
+}
+
+#login-box div.highlight {
+    width: fit-content;
+    margin: auto;
+}
+
+#login-box img {
+    margin: 30px auto;
+    display: block;
+}
+
+#login-box div {
+    text-align: center;
+    font-size: xx-large;
+}
+
+form {
+    margin: 20px;
+}
+
+input {
+    border: transparent;
+    display: block;
+    margin: 20px auto;
+    border-radius: 20px;
+    width: 90%;
+    padding: 10px;
+    background-color: var(--separator-color-alt);
+    color: var(--text-color)
+}

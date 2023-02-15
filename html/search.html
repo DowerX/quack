@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/duck90.png">
+    <script src="/js/color-scheme.js"></script>
+    <script src="/js/animation-preload.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/searchbar.css">
+    <link rel="stylesheet" href="/css/feed.css">
+    <title>Search</title>
+</head>
+<body>
+    <main>
+        <table class="gradient-bg">
+            <tbody>
+                <tr>
+                    <td id="side-bar">
+                        <a class="highlight preload" href="#"><img class="invert" src="/img/duck90.png" alt="duck logo"></a>
+                        <ul>
+                            <li><a class="highlight preload" href="#"><img class="invert" src="/img/hashtag-large-96.png">Feed</a></li>
+                            <li><a class="highlight preload" href="#"><img class="invert" src="/img/contacts-96.png">Profile</a></li>
+                            <li><a class="highlight preload" href="javascript:history.back()"><img class="invert" src="/img/undo-90.png">Back</a></li>
+                            <li><a class="highlight preload" href="#"><img class="invert" src="/img/open-pane-96.png">Log Out</a></li>
+                            <li><a class="highlight preload" href="javascript:toggleColorScheme()"><img class="invert" src="/img/sun-96.png">Dark Mode</a></li>
+                        </ul>
+                    </td>
+                    <td id="main-area">
+                        <div id="search-bar">
+                            <form>
+                                <input type="text" name="query" placeholder="Search">
+                            </form>
+                        </div>
+                        <div id="search-bar-spacer"></div>
+                        <ul id="posts">
+                            <li>
+                                <div>
+                                    <a href="#"><img class="profile-picture" src="/img/me.jpg">
+                                    <span>Benedek László</span></a>
+                                    <p>pee is stored in the balls</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        some footer
+    </footer>
+</body>
+</html>

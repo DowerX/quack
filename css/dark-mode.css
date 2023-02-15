@@ -1,0 +1,7 @@
+:root {
+    --text-color: white;
+    --background-color: black;
+    --separator-color: grey;
+    --separator-color-alt: rgb(43, 43, 43);
+    --image-invert: 100%;
+}

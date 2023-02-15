@@ -1,0 +1,25 @@
+#search-bar {
+    z-index: 999;
+    padding: 15px 15px 50px 15px;
+    display: block;
+    width: calc(100vw - var(--side-bar-width));
+    position: fixed;
+    border-left: 1px solid var(--separator-color);
+    backdrop-filter: blur(50px);
+    mask: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+#search-bar input[type="text"] {
+    border: transparent;
+    border-radius: 20px;
+    width: calc(100vw - var(--side-bar-width) - 45px);
+    padding: 10px;
+    background-color: var(--separator-color-alt);
+    color: var(--text-color);
+    mask: none;
+}
+
+#search-bar-spacer {
+    content: "";
+    height: 40px;
+}
