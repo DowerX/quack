@@ -56,6 +56,10 @@ footer {
     z-index: 999;
 }
 
+footer::after{
+    content: "Made by László BENEDEK";
+}
+
 table {
     border-collapse: collapse;
 }
