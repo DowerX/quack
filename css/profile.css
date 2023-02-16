@@ -71,5 +71,29 @@
     max-width: 330px;
     color: var(--text-color);
     background-color: var(--separator-color-alt);
-    
+}
+#new-post input[type="file"] {
+    display: none;
+}
+
+#new-post label {
+    margin: 10px auto;
+    border: none;
+    padding: 10px 0px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    display: block;
+    border-radius: 10px;
+    font-size: medium;
+    max-width: 330px;
+    color: var(--text-color);
+    background-color: var(--separator-color-alt);
+    width: 100%;
+}
+
+#new-post img {
+    width: 20px;
+    display: inline;
+    padding-right: 3px;
+    transform: translateY(3px);
 }

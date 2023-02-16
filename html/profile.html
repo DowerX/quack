@@ -22,14 +22,16 @@
             <tbody>
                 <tr>
                     <td id="side-bar">
-                        <a class="highlight preload" href="#"><img class="invert" src="/img/duck90.png" alt="duck logo"></a>
-                        <ul>
-                            <li><a class="highlight preload" href="/html/feed.html"><img class="invert" src="/img/hashtag-large-96.png">Feed</a></li>
-                            <li><a class="highlight preload current-item" href="/html/profile.html"><img class="invert" src="/img/contacts-96.png">Profile</a></li>
-                            <li><a class="highlight preload" href="javascript:history.back()"><img class="invert" src="/img/undo-90.png">Back</a></li>
-                            <li><a class="highlight preload" href="javascript:logout()"><img class="invert" src="/img/open-pane-96.png">Log Out</a></li>
-                            <li><a class="highlight preload" href="javascript:toggleColorScheme()"><img class="invert" src="/img/sun-96.png">Dark Mode</a></li>
-                        </ul>
+                        <nav>
+                            <a class="highlight preload" href="#"><img class="invert" src="/img/duck90.png" alt="duck logo"></a>
+                            <ul>
+                                <li><a class="highlight preload" href="/html/feed.html"><img class="invert" src="/img/hashtag-large-96.png">Feed</a></li>
+                                <li><a class="highlight preload current-item" href="/html/profile.html"><img class="invert" src="/img/contacts-96.png">Profile</a></li>
+                                <li><a class="highlight preload" href="javascript:history.back()"><img class="invert" src="/img/undo-90.png">Back</a></li>
+                                <li><a class="highlight preload" href="javascript:logout()"><img class="invert" src="/img/open-pane-96.png">Log Out</a></li>
+                                <li><a class="highlight preload" href="javascript:toggleColorScheme()"><img class="invert" src="/img/sun-96.png">Dark Mode</a></li>
+                            </ul>
+                        </nav>
                     </td>
                     <td id="main-area">
                         <div id="search-bar">
@@ -44,8 +46,11 @@
                             <p>pee is stored in the balls</p>
                         </div>
                         <div id="new-post">
-                            <form id="new-post-form">
+                            <form id="new-post-form" action="javascript:makePost()">
                                 <textarea placeholder="Say something..." name="content" form="new-post-form"></textarea>
+                                <label for="file" class="highlight preload"><img src="/img/add-image-90.png" class="invert">Attach Image</label>
+                                <input type="file" id="file" accept="image/jpg, image/jpeg, image/png">
+                                <script>document.getElementById("file").addEventListener("change", encodeFile);</script>
                                 <input type="submit" value="Send" class="highlight preload">
                             </form>
                         </div>

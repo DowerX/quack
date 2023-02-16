@@ -19,8 +19,8 @@
 }
 
 .highlight:hover {
-    color: var(--highlight-color);
-    filter: drop-shadow(0 0 10px var(--highlight-color));
+    color: var(--highlight-color) !important;
+    filter: drop-shadow(0 0 10px var(--highlight-color)) !important;
 }
 
 .gradient-bg {
