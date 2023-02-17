@@ -37,7 +37,7 @@
                     </td>
                     <td id="main-area">
                         <div id="search-bar">
-                            <form action="/html/search.html">
+                            <form action="/html/search.html" method="post">
                                 <input type="text" name="query" placeholder="Search">
                             </form>
                         </div>
@@ -45,8 +45,8 @@
                         <div id="profile" class="gradient-bg">
                             <a href="#"><img class="profile-picture" src="/img/me.jpg">
                             <span>Benedek László</span></a>
-                            <p>i like trains ❤️ in my bio lol</p>
-                            <a class="highlight preload" href="javascript:follow(1)"><div id="follow-img" class="invert" style="--follow-image: url('/img/checked-user-male-90.png')"></div>Follow</a>
+                            <p title="Bio">i like trains ❤️ in my bio lol</p>
+                            <a class="highlight preload" href="javascript:follow(1)" title="Follow/unfollow user"><div id="follow-img" class="invert" style="--follow-image: url('/img/checked-user-male-90.png')"></div>Follow</a>
                         </div>
                         <div id="new-post">
                             <form id="new-post-form" action="javascript:makePost()">

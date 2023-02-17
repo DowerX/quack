@@ -9,7 +9,7 @@ html {
 }
 
 main {
-    background-image: url("/img/ducks-bg.jpg") !important;
+    background-image: url("/img/ducks-bg.jpg");
     background-size: cover;
     z-index: 0;
     width: 100vw;
