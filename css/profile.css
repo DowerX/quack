@@ -16,6 +16,16 @@
     font-size: xx-large;
 }
 
+#follow-img {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: var(--follow-image);
+    background-size: cover;
+    transform: translateY(3px);
+    margin-right: 3px;
+}
+
 @media (max-width: 620px) {
     #profile .profile-picture {
         margin: auto;
@@ -33,6 +43,12 @@
     #profile p {
         text-align: center;
     }
+
+    #profile a.highlight {
+        margin: auto;
+        width: fit-content;
+        display: block;
+    } 
 }
 
 #new-post {
@@ -72,6 +88,7 @@
     color: var(--text-color);
     background-color: var(--separator-color-alt);
 }
+
 #new-post input[type="file"] {
     display: none;
 }
