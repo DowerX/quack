@@ -1,7 +1,7 @@
 :root {
     --pointer-size: 100px;
     --login-box-width: 300px;
-    --login-box-height: 400px;
+    --login-box-height: 430px;
 }
 
 html {
@@ -75,4 +75,12 @@ input {
     padding: 10px;
     background-color: var(--separator-color-alt);
     color: var(--text-color)
+}
+
+#register {
+    display: block;
+    margin: auto;
+    width: fit-content;
+    color: var(--separator-color);
+    font-size: small;
 }

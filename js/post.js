@@ -1,20 +1,44 @@
 function removePost(id) {
-    if(confirm("Are you sure you want to remove this post?")) {
-        console.log("TODO: remove post");
-    }
-    window.location = window.location;
+    let data = new FormData();
+    data.append("id", id);
+    fetch("/php/func/remove-post-action.php",
+        {
+            method: "POST",
+            body: data
+        }
+    ).then(()=>{
+        if(window.location.href.includes("post.php")) {
+            window.location = "/php/feed.php";
+        } else {
+            window.location = window.location;
+        }
+    });
 }
 
 function removeReply(id) {
-    if(confirm("Are you sure you want to remove this relpy?")) {
-        console.log("TODO: remove reply");
-    }
-    window.location = window.location;
+    let data = new FormData();
+    data.append("id", id);
+    fetch("/php/func/remove-reply-action.php",
+        {
+            method: "POST",
+            body: data
+        }
+    ).then(()=>{
+        window.location = window.location;
+    });
 }
 
 function likePost(id) {
-    console.log("TODO: like post");
-    window.location = window.location;
+    let data = new FormData();
+    data.append("id", id);
+    fetch("/php/func/like-action.php",
+        {
+            method: "POST",
+            body: data
+        }
+    ).then(()=>{
+        window.location = window.location;
+    });
 }
 
 var fileEncoded = null;
@@ -29,11 +53,33 @@ function encodeFile() {
 }
 
 function makePost() {
-    console.log("TODO: make post");
-    window.location = window.location;
+    let data = new FormData();
+    data.append("content", document.getElementsByTagName("textarea")[0].value);
+    let image = "";
+    if (fileEncoded != null) image = fileEncoded;
+    data.append("image", image);
+
+    fetch("/php/func/post-action.php",
+        {
+            method: "POST",
+            body: data
+        }
+    ).then(()=>{
+        window.location = window.location;
+    });
 }
 
-function makeReply() {
-    console.log("TODO: make reply");
-    window.location = window.location;
+function makeReply(id) {
+    let data = new FormData();
+    data.append("content", document.getElementsByTagName("textarea")[0].value);
+    data.append("id", id);
+
+    fetch("/php/func/reply-action.php",
+        {
+            method: "POST",
+            body: data
+        }
+    ).then(()=>{
+        window.location = window.location;
+    });
 }
