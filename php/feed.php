@@ -9,13 +9,13 @@
     <link rel="icon" href="/img/duck90.png">
     <script src="/js/color-scheme.js"></script>
     <script src="/js/animation-preload.js"></script>
-    
     <script src="/js/post.js"></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/searchbar.css">
     <link rel="stylesheet" href="/css/feed.css">
+    <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Feed</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
                             </form>
                         </div>
                         <div id="search-bar-spacer"></div>
-                        <ul id="posts">
+                        <ul class="posts">
                             <?php
                                 $db = getDB();
                                 // get posts from users that we follow

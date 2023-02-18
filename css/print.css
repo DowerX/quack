@@ -1,0 +1,20 @@
+* {
+    background-color: white !important;
+    color: black !important;
+    filter: none !important;
+    border: none !important;
+}
+
+footer, #side-bar, #search-bar, #search-bar-spacer, #new-post, .interact{
+    display: none !important;
+}
+
+#main-area {
+    margin: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+li>div {
+    border: 1px solid black !important;
+}

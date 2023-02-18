@@ -1,13 +1,13 @@
-#posts {
+.posts {
     margin-bottom: 50px;
 }
 
-#posts li {
+.posts li {
     border-top: 1px solid var(--separator-color);
     padding: 0 30px;
 }
 
-#posts li>div {
+.posts li>div {
     background-color: var(--background-color);
     margin: 30px auto;
     padding: 0px;
@@ -17,7 +17,7 @@
     filter: drop-shadow(0 0 3px var(--separator-color));
 }
 
-#posts .profile-picture {
+.posts .profile-picture {
     width: 64px;
     aspect-ratio: 1;
     object-fit:cover;
@@ -26,23 +26,23 @@
     filter: drop-shadow(0 0 3px var(--separator-color));
 }
 
-#posts span {
+.posts span {
     position: relative;
     display: inline-block;
     top: -28px;
     left: 10px;
 }
 
-#posts a {
+.posts a {
     height: 0;
     display: inline-block;
 }
 
-#posts p {
+.posts p {
     padding: 0 20px 20px 20px;
 }
 
-#posts .embed {
+.posts .embed {
     max-width: 400px;
     width: 90%;
     border-radius: 5px;

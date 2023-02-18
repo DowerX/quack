@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/searchbar.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/feed.css">
+    <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Profile</title>
 </head>
 <body>
@@ -68,7 +69,7 @@
                             </form>
                         </div>
                         <?php } ?>
-                        <ul id="posts">
+                        <ul class="posts">
                             <?php
                                 foreach ($user->getPosts() as $post) {
                                     $stats = $post->getStats();

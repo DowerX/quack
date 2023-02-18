@@ -9,7 +9,6 @@
     <link rel="icon" href="/img/duck90.png">
     <script src="/js/color-scheme.js"></script>
     <script src="/js/animation-preload.js"></script>
-    
     <script src="/js/post.js"></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
@@ -17,6 +16,7 @@
     <link rel="stylesheet" href="/css/searchbar.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/feed.css">
+    <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Post</title>
 </head>
 <body>
@@ -49,7 +49,7 @@
                             $user = $post->getUser();
                             $replies = $post->getReplies();
                         ?>
-                        <ul id="posts" class="gradient-bg">
+                        <ul class="posts gradient-bg">
                             <li>
                                 <div>
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
@@ -72,7 +72,7 @@
                                 <input type="submit" value="Send" class="highlight preload">
                             </form>
                         </div>
-                        <ul id="posts">
+                        <ul class="posts">
                             <?php foreach($replies as $reply) {
                                 $reply_user = $reply->getUser();
                             ?>
