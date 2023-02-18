@@ -30,7 +30,7 @@
             $stm->bindValue("id", $user_id);
             $stm->bindValue("cookie", $auth_cookie);
             $stm->execute();
-            setcookie("auth", $auth_cookie, 0, "/", $_SERVER["HOST_NAME"], false, false);
+            setcookie("auth", $auth_cookie, 0, "/", $_SERVER["HTTP_HOST"], false, false);
             // redirect
             header("Location: /php/feed.php");
             exit();
