@@ -29,7 +29,7 @@
             return;
         };
 
-        if(strlen($name)<40 || strlen($name)>3) {
+        if(strlen($name)>40 || strlen($name)<3) {
             echo "The name must be between 3 and 40 characters!";
             http_response_code(401);
             return;
