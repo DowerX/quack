@@ -14,6 +14,10 @@
         }  
     }
 
+    function getPostLimit() {
+        return 10;
+    }
+
     class User {
         public $id;
         public $name;
@@ -33,11 +37,13 @@
             }
         }
 
-        function getPosts() {
+        function getPosts($limit = -1, $offset = 0) {
             $posts = [];
             $db = getDB();
-            $stm = $db->prepare("SELECT id FROM post WHERE user_id=:id ORDER BY id DESC");
+            $stm = $db->prepare("SELECT id FROM post WHERE user_id=:id ORDER BY id DESC LIMIT :limit OFFSET :offset");
             $stm->bindValue("id", $this->id);
+            $stm->bindValue("limit", $limit);
+            $stm->bindValue("offset", $offset);
             $result = $stm->execute();
             while ($post = $result->fetchArray(SQLITE3_ASSOC)) {
                 array_push($posts, new Post($post["id"]));
@@ -88,11 +94,13 @@
             return new User($this->user_id);
         }
 
-        function getReplies() {
+        function getReplies($limit = -1, $offset = 0) {
             $posts = [];
             $db = getDB();
-            $stm = $db->prepare("SELECT id FROM reply WHERE post_id=:id ORDER BY id DESC");
+            $stm = $db->prepare("SELECT id FROM reply WHERE post_id=:id ORDER BY id DESC LIMIT :limit OFFSET :offset");
             $stm->bindValue("id", $this->id);
+            $stm->bindValue("limit", $limit);
+            $stm->bindValue("offset", $offset);
             $result = $stm->execute();
             while ($reply = $result->fetchArray(SQLITE3_ASSOC)) {
                 array_push($posts, new Reply($reply["id"]));

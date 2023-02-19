@@ -10,6 +10,7 @@
     <script src="/js/color-scheme.js"></script>
     <script src="/js/animation-preload.js"></script>
     <script src="/js/post.js"></script>
+    <script src="/js/select-page.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
@@ -45,9 +46,19 @@
                         <ul class="posts">
                             <?php
                                 $db = getDB();
+                                $limit = getPostLimit();
+                                $offset = 0;
+                                if(array_key_exists("limit", $_GET)) {
+                                    $limit = $_GET["limit"];
+                                }
+                                if(array_key_exists("offset", $_GET)) {
+                                    $offset = $_GET["offset"];
+                                }
                                 // get posts from users that we follow
-                                $stm = $db->prepare("SELECT post.user_id, post.id FROM post INNER JOIN follow ON post.user_id = follow.target_id WHERE follow.user_id = :client_id ORDER BY post.id DESC");
+                                $stm = $db->prepare("SELECT post.user_id, post.id FROM post INNER JOIN follow ON post.user_id = follow.target_id WHERE follow.user_id = :client_id ORDER BY post.id DESC LIMIT :limit OFFSET :offset");
                                 $stm->bindValue("client_id", $client_id);
+                                $stm->bindValue("limit", $limit);
+                                $stm->bindValue("offset", $offset);
                                 $result = $stm->execute();
 
                                 while($values = $result->fetchArray(SQLITE3_ASSOC)) {
@@ -71,6 +82,12 @@
                                 </div>
                             </li>
                             <?php } ?>
+                            <li>
+                                <div id="select-page">
+                                    <a class="highlight preload" href="javascript:start()"><img class="invert" src="/img/rewind-90.png"></a><a class="highlight preload" href="javascript:prev()"><img class="invert" src="/img/sort-left-90.png"></a>
+                                    <a class="highlight preload" href="javascript:next()"><img class="invert" src="/img/sort-right-90.png"></a><a style="display: none" class="highlight preload" href="javascript:end()"><img class="invert" src="/img/fast-forward-90.png"></a>
+                                </div>
+                            </li>
                         </ul>
                     </td>
                 </tr>

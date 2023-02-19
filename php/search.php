@@ -9,6 +9,7 @@
     <link rel="icon" href="/img/duck90.png">
     <script src="/js/color-scheme.js"></script>
     <script src="/js/animation-preload.js"></script>
+    <script src="/js/select-page.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
@@ -44,8 +45,18 @@
                         <ul class="posts">
                             <?php
                                 $db = getDB();
-                                $stm = $db->prepare("SELECT user_id FROM user WHERE name LIKE :query");
+                                $limit = getPostLimit();
+                                $offset = 0;
+                                if(array_key_exists("limit", $_GET)) {
+                                    $limit = $_GET["limit"];
+                                }
+                                if(array_key_exists("offset", $_GET)) {
+                                    $offset = $_GET["offset"];
+                                }
+                                $stm = $db->prepare("SELECT user_id FROM user WHERE name LIKE :query LIMIT :limit OFFSET :offset");
                                 $stm->bindValue("query", "%".$_POST["query"]."%");
+                                $stm->bindValue("limit", $limit);
+                                $stm->bindValue("offset", $offset);
                                 $result = $stm->execute();
                                 while($values = $result->fetchArray(SQLITE3_ASSOC)) {
                                     $user = new User($values["user_id"]);
@@ -60,6 +71,12 @@
                                 </div>
                             </li>
                             <?php } ?>
+                            <li>
+                                <div id="select-page">
+                                    <a class="highlight preload" href="javascript:start()"><img class="invert" src="/img/rewind-90.png"></a><a class="highlight preload" href="javascript:prev()"><img class="invert" src="/img/sort-left-90.png"></a>
+                                    <a class="highlight preload" href="javascript:next()"><img class="invert" src="/img/sort-right-90.png"></a><a style="display: none" class="highlight preload" href="javascript:end()"><img class="invert" src="/img/fast-forward-90.png"></a>
+                                </div>
+                            </li>
                         </ul>
                     </td>
                 </tr>

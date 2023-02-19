@@ -11,7 +11,8 @@
     <script src="/js/animation-preload.js"></script>
     <script src="/js/edit.js"></script>
     <script src="/js/post.js"></script>
-    <script src="/js/follow.js"></script>
+    <script src="/js/follow.js" defer></script>
+    <script src="/js/select-page.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
@@ -71,7 +72,15 @@
                         <?php } ?>
                         <ul class="posts">
                             <?php
-                                foreach ($user->getPosts() as $post) {
+                                $limit = getPostLimit();
+                                $offset = 0;
+                                if(array_key_exists("limit", $_GET)) {
+                                    $limit = $_GET["limit"];
+                                }
+                                if(array_key_exists("offset", $_GET)) {
+                                    $offset = $_GET["offset"];
+                                }
+                                foreach ($user->getPosts($limit, $offset) as $post) {
                                     $stats = $post->getStats();
                             ?>
                             <li>
@@ -90,6 +99,12 @@
                                 </div>
                             </li>
                             <?php } ?>
+                            <li>
+                                <div id="select-page">
+                                    <a class="highlight preload" href="javascript:start()"><img class="invert" src="/img/rewind-90.png"></a><a class="highlight preload" href="javascript:prev()"><img class="invert" src="/img/sort-left-90.png"></a>
+                                    <a class="highlight preload" href="javascript:next()"><img class="invert" src="/img/sort-right-90.png"></a><a style="display: none" class="highlight preload" href="javascript:end()"><img class="invert" src="/img/fast-forward-90.png"></a>
+                                </div>
+                            </li>
                         </ul>
                     </td>
                 </tr>

@@ -73,3 +73,14 @@
 .liked {
     filter: invert(18%) sepia(87%) saturate(6912%) hue-rotate(3deg) brightness(101%) contrast(122%) !important;
 }
+
+#select-page {
+    display: flex;
+    justify-content: space-evenly;
+    height: 60px;
+}
+#select-page img {
+    max-width: 30px;
+    width: 100%;
+    transform: translateY(15px);
+}
