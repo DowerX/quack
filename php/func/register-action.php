@@ -54,7 +54,7 @@
         $stm->bindValue("user_id", $user_id);
         $stm->bindValue("bio", $bio);
         $stm->bindValue("name", $name);
-        $stm->bindValue("picture", "/img/user-96.png");
+        $stm->bindValue("picture", 0);
         $stm->execute();
 
         echo "";

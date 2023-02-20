@@ -33,7 +33,7 @@
             if($values = $result->fetchArray(SQLITE3_ASSOC)) {
                 $this->name = $values["name"];
                 $this->bio = $values["bio"];
-                $this->picture = $values["picture"];
+                $this->picture = $values["picture"]!=SQLITE3_NULL ? "/php/image.php?id=".$values["picture"] : "";
             }
         }
 
@@ -76,7 +76,7 @@
             $result = $stm->execute();
             if($values = $result->fetchArray(SQLITE3_ASSOC)) {
                 $this->content = $values["content"];
-                $this->image = $values["image"];
+                $this->image = $values["image"]!=SQLITE3_NULL ? "/php/image.php?id=".$values["image"] : "";
                 $this->user_id = $values["user_id"];
             }
         }

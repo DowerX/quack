@@ -7,8 +7,17 @@
         $stm->bindValue("cookie", $auth);
         $user_id = $stm->execute()->fetchArray(SQLITE3_NUM)[0];
         
-        $stm = $db->prepare("UPDATE user SET picture=:picture WHERE user_id=:user_id");
-        $stm->bindValue("picture", $picture);
+        // can't use 'RETURNING id' bc the SQLITE3 class in PHP is busted ;-)
+        // causes double rows
+        $stm = $db->prepare("INSERT INTO image (data) VALUES(:image)");
+        $stm->bindValue("image", $picture);
+        $stm->execute();
+        $stm = $db->prepare("SELECT id FROM image WHERE data=:image ORDER BY id DESC LIMIT 1");
+        $stm->bindValue("image", $picture);
+        $image_id = $stm->execute()->fetchArray(SQLITE3_ASSOC)["id"];
+
+        $stm = $db->prepare("UPDATE user SET picture=:image_id WHERE user_id=:user_id");
+        $stm->bindValue("image_id", $image_id);
         $stm->bindValue("user_id", $user_id);
         $stm->execute();
     }
