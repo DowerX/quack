@@ -37,7 +37,7 @@
                     </td>
                     <td id="main-area">
                         <div id="search-bar">
-                            <form action="/php/search.php" method="post">
+                            <form action="/php/search.php" method="get">
                                 <input type="text" name="query" placeholder="Search">
                             </form>
                         </div>
@@ -54,7 +54,7 @@
                                     $offset = $_GET["offset"];
                                 }
                                 $stm = $db->prepare("SELECT user_id FROM user WHERE name LIKE :query LIMIT :limit OFFSET :offset");
-                                $stm->bindValue("query", "%".$_POST["query"]."%");
+                                $stm->bindValue("query", "%".$_GET["query"]."%");
                                 $stm->bindValue("limit", $limit);
                                 $stm->bindValue("offset", $offset);
                                 $result = $stm->execute();

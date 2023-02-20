@@ -41,7 +41,7 @@
                     </td>
                     <td id="main-area">
                         <div id="search-bar">
-                            <form action="/php/search.php" method="post">
+                            <form action="/php/search.php" method="get">
                                 <input type="text" name="query" placeholder="Search">
                             </form>
                         </div>
