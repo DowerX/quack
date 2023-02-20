@@ -1,6 +1,7 @@
 #profile {
     padding: 20px;
     margin-top: 28px;
+    animation: float-in 300ms ease-out;
 }
 
 #profile .profile-picture {
@@ -16,6 +17,14 @@
     transform: translateY(118px);
     padding-left: 20px;
     font-size: xx-large;
+}
+
+#profile p::before {
+    content: open-quote;
+}
+
+#profile p::after {
+    content: close-quote;
 }
 
 #follow-img {
@@ -56,6 +65,7 @@
 #new-post {
     border-top: 1px solid var(--separator-color);
     padding: 15px 0 10px 0;
+    animation: float-in 300ms ease-out;
 }
 
 #new-post form {

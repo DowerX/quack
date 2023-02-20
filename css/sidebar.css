@@ -21,6 +21,10 @@
     font-size: larger;
 }
 
+#side-bar li:hover {
+    scale: 1.2;
+}
+
 #side-bar img {
     width: 64px;
     margin: auto;

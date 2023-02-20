@@ -28,7 +28,7 @@
 }
 
 * {
-    transition: color 300ms ease-out, filter 300ms ease-out, background-color 300ms ease-out;
+    transition: color 300ms ease-out, filter 300ms ease-out, background-color 300ms ease-out, scale 300ms ease-out;
 }
 
 html, body {
