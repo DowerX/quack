@@ -13,12 +13,14 @@
     <script src="/js/post.js"></script>
     <script src="/js/follow.js" defer></script>
     <script src="/js/select-page.js" defer></script>
+    <script src="/js/zoom.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/searchbar.css">
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/feed.css">
+    <link rel="stylesheet" href="/css/zoom.css">
     <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Profile</title>
 </head>
@@ -112,5 +114,8 @@
         </table>
     </main>
     <footer></footer>
+    <div class="zoom hidden preload">
+        <img>
+    </div>
 </body>
 </html>

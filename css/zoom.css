@@ -1,0 +1,50 @@
+.hidden {
+    animation: zoom-out 300ms ease-in-out forwards;
+    animation-name: zoom-out !important;
+}
+
+.zoom {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 200;
+    backdrop-filter: blur(5px);
+    cursor: zoom-out;
+    animation: zoom-in 300ms ease-out forwards;
+}
+
+@keyframes zoom-in {
+    from {
+        height: 0vh;
+        opacity: 0%;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        height: 100vh;
+        opacity: 100%;
+        backdrop-filter: blur(5px);
+    }
+}
+@keyframes zoom-out {
+    from {
+        height: 100vh;
+        backdrop-filter: blur(5px);
+    }
+    to {
+        height: 0vh;
+        backdrop-filter: blur(0px);
+    }
+}
+
+.zoom img {
+    margin: auto;
+    max-width: 90%;
+    max-height: 90%;
+    width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px var(--separator-color));
+    z-index: 201;
+}

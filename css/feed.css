@@ -62,6 +62,10 @@
     filter: drop-shadow(0 0 5px var(--separator-color-alt));
 }
 
+.posts .embed:hover {
+    cursor: zoom-in;
+}
+
 .posts .profile-picture:hover {
     scale: 1.1;
 }

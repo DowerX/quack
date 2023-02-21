@@ -12,6 +12,7 @@
 
 .preload {
     transition-duration: 0s !important;
+    animation-duration: 0s !important;
 }
 
 .highlight {
@@ -53,7 +54,7 @@ footer {
     text-align: center;
     margin: 0;
     padding: 0;
-    z-index: 999;
+    z-index: 100;
 }
 
 footer::after{
