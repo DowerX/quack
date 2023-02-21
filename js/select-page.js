@@ -26,3 +26,23 @@ function next() {
     parseParams();
     window.location = `${window.location.pathname}?limit=${limit}&offset=${offset+limit}${extra}`;
 }
+
+function hidePageSelectors() {
+    let prev = false;
+    let next = false;
+    parseParams();
+    if (document.querySelectorAll(".posts li").length==1) {
+        document.querySelector('a[href="javascript:next()"]').style.display = "none";
+        next = true;
+    }
+    if (offset == 0) {
+        document.querySelector('a[href="javascript:prev()"]').style.display = "none";
+        document.querySelector('a[href="javascript:start()"]').style.display = "none";
+        prev = true;
+    }
+    if (prev&&next) {
+        document.querySelector(".posts li").style.display = "none";
+    }
+}
+
+hidePageSelectors();
