@@ -81,3 +81,9 @@
     transform: scale(2);
     pointer-events: none;
 }
+
+@media (hover:none) {
+    #cz, #cz-img {
+        display: none !important;
+    }
+}
