@@ -3,6 +3,10 @@
     animation-name: zoom-out !important;
 }
 
+.fade {
+    opacity: 0;
+}
+
 .zoom {
     position: fixed;
     display: flex;
@@ -47,4 +51,33 @@
     object-fit: contain;
     filter: drop-shadow(0 0 10px var(--separator-color));
     z-index: 201;
+    cursor: none;
+}
+
+#cz {
+    --size: 250px;
+    width: var(--size);
+    height: var(--size);
+    position: fixed;
+    border-radius: 50%;
+    left: calc(var(--pos-x) - var(--size) / 2 );
+    top: calc(var(--pos-y) - var(--size) / 2);
+    overflow: hidden;
+    z-index: 202;
+    transition: left 100ms ease-out, top 100ms ease-out;
+    filter: drop-shadow(0 0 5px var(--separator-color));
+    pointer-events: none;
+}
+
+#cz-img {
+    position: absolute;
+    width: 100vw;
+    max-width: var(--og-w);
+    max-height: var(--og-h);
+    left: calc(var(--og-x) - var(--pos-x-rel) - var(--p-x));
+    top: calc(var(--og-y) - var(--pos-y-rel) - var(--p-y));
+    transition: left 200ms ease-out, top 200ms ease-out;
+    transform-origin: top left;
+    transform: scale(2);
+    pointer-events: none;
 }

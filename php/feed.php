@@ -98,7 +98,10 @@
     </main>
     <footer></footer>
     <div class="zoom hidden preload">
-        <img>
+        <img id="og">
+        <div id="cz" class="fade">
+            <img id="cz-img">
+        </div>
     </div>
 </body>
 </html>
