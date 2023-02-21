@@ -65,9 +65,9 @@
                                 <div>
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo $user->name; ?></span>
+                                        <span><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
-                                    <p><?php echo $post->content; ?></p>
+                                    <p><?php echo htmlspecialchars($post->content); ?></p>
                                     <?php if ($post->image!="") { ?><img class="embed" src="<?php echo $post->image; ?>"><?php } ?>
                                     <div class="interact">
                                         <a title="Likes" href="javascript:likePost(<?php echo $post->id; ?>)" class="highlight preload"><img class="invert <?php if ($post->isLikedBy($client_id)) { echo "liked"; } ?>" src="/img/love-96.png"><?php echo $stats["likes"]; ?></a>
@@ -91,11 +91,11 @@
                                 <div>
                                     <a href="/php/profile.php?id=<?php echo $reply->user_id; ?>">
                                         <img class="profile-picture" src="<?php echo $reply_user->picture; ?>">
-                                        <span><?php echo $reply_user->name; ?></span>
+                                        <span><?php echo htmlspecialchars($reply_user->name); ?></span>
                                     </a>
-                                    <p><?php echo $reply->content; ?></p>
+                                    <p><?php echo htmlspecialchars($reply->content); ?></p>
                                     <div class="interact">
-                                        <?php if ($reply->user_id == $client_id ) { ?><a title="Remove reply" href="javascript:removeReply(<?php echo $reply->id; ?>)" class="highlight preload"><img class="invert" src="/img/close-90.png"></a><?php } ?>
+                                        <?php if ($reply->user_id == $client_id) { ?><a title="Remove reply" href="javascript:removeReply(<?php echo $reply->id; ?>)" class="highlight preload"><img class="invert" src="/img/close-90.png"></a><?php } ?>
                                     </div>
                                 </div>
                             </li>

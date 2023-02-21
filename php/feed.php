@@ -72,9 +72,9 @@
                                 <div>
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo $user->name; ?></span>
+                                        <span><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
-                                    <p><?php echo $post->content; ?></p>
+                                    <p><?php echo htmlspecialchars($post->content); ?></p>
                                     <?php if ($post->image!="") { ?><img class="embed" src="<?php echo $post->image; ?>"><?php } ?>
                                     <div class="interact">
                                         <a title="Likes" href="javascript:likePost(<?php echo $post->id; ?>)" class="highlight preload"><img class="invert <?php if ($post->isLikedBy($client_id)) { echo "liked"; } ?>" src="/img/love-96.png"><?php echo $stats["likes"]; ?></a>

@@ -65,9 +65,9 @@
                                 <div>
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo $user->name; ?></span>
+                                        <span><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
-                                    <p title="Bio"><?php echo $user->bio; ?></p>
+                                    <p title="Bio"><?php echo htmlspecialchars($user->bio); ?></p>
                                 </div>
                             </li>
                             <?php } ?>

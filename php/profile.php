@@ -51,8 +51,8 @@
                         <?php $user = new User($_GET["id"]); ?>
                         <div id="profile" class="gradient-bg">
                             <a href="<?php if($client_id == $user->id) { echo "javascript:editPicture()"; }?>"><img class="profile-picture" src="<?php echo $user->picture; ?>"></a>
-                            <a href="<?php if($client_id == $user->id) { echo "javascript:editName()"; }?>"><span><?php echo $user->name; ?></span></a>
-                            <a href="<?php if($client_id == $user->id) { echo "javascript:editBio()"; }?>"><p title="Bio"><?php echo $user->bio; ?></p></a>
+                            <a href="<?php if($client_id == $user->id) { echo "javascript:editName()"; }?>"><span><?php echo htmlspecialchars($user->name); ?></span></a>
+                            <a href="<?php if($client_id == $user->id) { echo "javascript:editBio()"; }?>"><p title="Bio"><?php echo htmlspecialchars($user->bio); ?></p></a>
                             <?php if ($user->id != $client_id) { ?>
                                 <a class="highlight preload" href="javascript:follow(<?php echo $user->id; ?>)" title="Follow/unfollow user">
                                     <div id="follow-img" class="invert" <?php if ($user->isFollowedBy($client_id)) { ?> style="--follow-image: url('/img/checked-user-male-90.png')" <?php } else { ?> style="--follow-image: url('/img/add-user-male-90.png')" <?php } ?>>
@@ -89,9 +89,9 @@
                                 <div>
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo $user->name; ?></span>
+                                        <span><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
-                                    <p><?php echo $post->content; ?></p>
+                                    <p><?php echo htmlspecialchars($post->content); ?></p>
                                     <?php if ($post->image!="") { ?><img class="embed" src="<?php echo $post->image; ?>"><?php } ?>
                                     <div class="interact">
                                         <a title="Likes" href="javascript:likePost(<?php echo $post->id; ?>)" class="highlight preload"><img class="invert <?php if ($post->isLikedBy($client_id)) { echo "liked"; } ?>" src="/img/love-96.png"><?php echo $stats["likes"]; ?></a>
