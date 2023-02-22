@@ -37,6 +37,17 @@
             }
         }
 
+        public static function idFromUsername($username) {
+            $db = getDB();
+            $stm = $db->prepare("SELECT id FROM login WHERE username=:username");
+            $stm->bindValue("username", $username);
+            $result = $stm->execute();
+            if($values = $result->fetchArray(SQLITE3_ASSOC)) {
+                return $values["id"];
+            }
+            return false;
+        }
+
         function getPosts($limit = -1, $offset = 0) {
             $posts = [];
             $db = getDB();
@@ -76,7 +87,7 @@
             $result = $stm->execute();
             if($values = $result->fetchArray(SQLITE3_ASSOC)) {
                 $this->content = $values["content"];
-                $this->image = $values["image"]!=SQLITE3_NULL ? "/php/image.php?id=".$values["image"] : "";
+                $this->image = $values["image"]!=-1 ? "/php/image.php?id=".$values["image"] : "";
                 $this->user_id = $values["user_id"];
             }
         }

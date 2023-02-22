@@ -12,12 +12,15 @@
 
         // can't use 'RETURNING id' bc the SQLITE3 class in PHP is busted ;-)
         // causes double rows
-        $stm = $db->prepare("INSERT INTO image (data) VALUES(:image)");
-        $stm->bindValue("image", $image);
-        $stm->execute();
-        $stm = $db->prepare("SELECT id FROM image WHERE data=:image ORDER BY id DESC LIMIT 1");
-        $stm->bindValue("image", $image);
-        $image_id = $stm->execute()->fetchArray(SQLITE3_ASSOC)["id"];
+        $image_id = -1;
+        if (strlen($image)!=0) {
+            $stm = $db->prepare("INSERT INTO image (data) VALUES(:image)");
+            $stm->bindValue("image", $image);
+            $stm->execute();
+            $stm = $db->prepare("SELECT id FROM image WHERE data=:image ORDER BY id DESC LIMIT 1");
+            $stm->bindValue("image", $image);
+            $image_id = $stm->execute()->fetchArray(SQLITE3_ASSOC)["id"];
+        }
 
         $stm = $db->prepare("INSERT INTO post (user_id, content, image) VALUES(:user_id, :content, :image_id)");
         $stm->bindValue("content", $content);
