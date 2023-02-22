@@ -12,6 +12,8 @@
     <script src="/js/post.js"></script>
     <script src="/js/select-page.js" defer></script>
     <script src="/js/zoom.js" defer></script>
+    <script src="/js/mention.js" defer></script>
+    <script src="/js/context-menu.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
@@ -19,6 +21,7 @@
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/feed.css">
     <link rel="stylesheet" href="/css/zoom.css">
+    <link rel="stylesheet" href="/css/context-menu.css">
     <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Post</title>
 </head>
@@ -62,10 +65,10 @@
                         ?>
                         <ul class="posts gradient-bg">
                             <li>
-                                <div>
+                                <div data-postid="<?php echo $post->id; ?>" data-username="<?php echo htmlspecialchars($user->username); ?>">
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo htmlspecialchars($user->name); ?></span>
+                                        <span title="@<?php echo htmlspecialchars($user->username);?>"><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
                                     <p><?php echo htmlspecialchars($post->content); ?></p>
                                     <?php if ($post->image!="") { ?><img class="embed" src="<?php echo $post->image; ?>"><?php } ?>
@@ -88,10 +91,10 @@
                                 $reply_user = $reply->getUser();
                             ?>
                             <li>
-                                <div>
+                                <div data-username="<?php echo htmlspecialchars($reply_user->username); ?>">
                                     <a href="/php/profile.php?id=<?php echo $reply->user_id; ?>">
                                         <img class="profile-picture" src="<?php echo $reply_user->picture; ?>">
-                                        <span><?php echo htmlspecialchars($reply_user->name); ?></span>
+                                        <span title="@<?php echo htmlspecialchars($reply_user->username);?>"><?php echo htmlspecialchars($reply_user->name); ?></span>
                                     </a>
                                     <p><?php echo htmlspecialchars($reply->content); ?></p>
                                     <div class="interact">
@@ -118,6 +121,13 @@
         <div id="cz" class="fade">
             <img id="cz-img">
         </div>
+    </div>
+    <div id="context-menu">
+        <ul>
+            <li id="copy-username"><a onclick="contextMenuCopy(copyUsername);">Copy Username</a></li>
+            <li id="copy-postid"><a onclick="contextMenuCopy(copyPostId);">Copy PostID</a></li>
+            <li><a onclick="contextMenuClose();">Close Menu</a></li>
+        </ul>
     </div>
 </body>
 </html>

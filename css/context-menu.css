@@ -1,0 +1,20 @@
+.posts p {
+    pointer-events: none;
+}
+
+#context-menu {
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
+    left: var(--pos-x);
+    top: var(--pos-y);
+    display: none;
+    background-color: var(--separator-color-alt);
+    border: 2px solid var(--separator-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#context-menu li {
+    cursor: pointer;
+}

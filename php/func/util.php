@@ -21,20 +21,23 @@
     class User {
         public $id;
         public $name;
+        public $username;
         public $bio;
         public $picture;
 
         function __construct($id) {
             $this->id = $id;
             $db = getDB();
-            $stm = $db->prepare("SELECT * FROM user WHERE user_id=:id");
+            $stm = $db->prepare("SELECT user.name, user.bio, user.picture, login.username FROM user INNER JOIN login ON user.user_id = login.id WHERE login.id=:id");
             $stm->bindValue("id", $id);
             $result = $stm->execute();
             if($values = $result->fetchArray(SQLITE3_ASSOC)) {
                 $this->name = $values["name"];
+                $this->username = $values["username"];
                 $this->bio = $values["bio"];
                 $this->picture = $values["picture"]!=SQLITE3_NULL ? "/php/image.php?id=".$values["picture"] : "";
             }
+
         }
 
         public static function idFromUsername($username) {

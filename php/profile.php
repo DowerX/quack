@@ -14,6 +14,8 @@
     <script src="/js/follow.js" defer></script>
     <script src="/js/select-page.js" defer></script>
     <script src="/js/zoom.js" defer></script>
+    <script src="/js/mention.js" defer></script>
+    <script src="/js/context-menu.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
@@ -21,6 +23,7 @@
     <link rel="stylesheet" href="/css/profile.css">
     <link rel="stylesheet" href="/css/feed.css">
     <link rel="stylesheet" href="/css/zoom.css">
+    <link rel="stylesheet" href="/css/context-menu.css">
     <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Profile</title>
 </head>
@@ -51,7 +54,7 @@
                         <?php $user = new User($_GET["id"]); ?>
                         <div id="profile" class="gradient-bg">
                             <a href="<?php if($client_id == $user->id) { echo "javascript:editPicture()"; }?>"><img class="profile-picture" src="<?php echo $user->picture; ?>"></a>
-                            <a href="<?php if($client_id == $user->id) { echo "javascript:editName()"; }?>"><span><?php echo htmlspecialchars($user->name); ?></span></a>
+                            <a href="<?php if($client_id == $user->id) { echo "javascript:editName()"; }?>"><span title="@<?php echo htmlspecialchars($user->username);?>"><?php echo htmlspecialchars($user->name); ?></span></a>
                             <a href="<?php if($client_id == $user->id) { echo "javascript:editBio()"; }?>"><p title="Bio"><?php echo htmlspecialchars($user->bio); ?></p></a>
                             <?php if ($user->id != $client_id) { ?>
                                 <a class="highlight preload" href="javascript:follow(<?php echo $user->id; ?>)" title="Follow/unfollow user">
@@ -86,10 +89,10 @@
                                     $stats = $post->getStats();
                             ?>
                             <li>
-                                <div>
+                                <div data-postid="<?php echo $post->id; ?>" data-username="<?php echo htmlspecialchars($user->username); ?>">
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo htmlspecialchars($user->name); ?></span>
+                                        <span title="@<?php echo htmlspecialchars($user->username);?>"><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
                                     <p><?php echo htmlspecialchars($post->content); ?></p>
                                     <?php if ($post->image!="") { ?><img class="embed" src="<?php echo $post->image; ?>"><?php } ?>
@@ -119,6 +122,13 @@
         <div id="cz" class="fade">
             <img id="cz-img">
         </div>
+    </div>
+    <div id="context-menu">
+        <ul>
+            <li id="copy-username"><a onclick="contextMenuCopy(copyUsername);">Copy Username</a></li>
+            <li id="copy-postid"><a onclick="contextMenuCopy(copyPostId);">Copy PostID</a></li>
+            <li><a onclick="contextMenuClose();">Close Menu</a></li>
+        </ul>
     </div>
 </body>
 </html>

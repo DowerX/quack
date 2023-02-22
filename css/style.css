@@ -28,6 +28,11 @@
     background: linear-gradient(90deg, var(--background-color) 50%, var(--text-color) 300%);
 }
 
+.mention {
+    color: var(--highlight-color) !important;
+    pointer-events: all;
+}
+
 * {
     transition: color 300ms ease-out, filter 300ms ease-out, background-color 300ms ease-out, scale 300ms ease-out;
 }

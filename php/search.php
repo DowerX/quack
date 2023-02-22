@@ -10,11 +10,13 @@
     <script src="/js/color-scheme.js"></script>
     <script src="/js/animation-preload.js"></script>
     <script src="/js/select-page.js" defer></script>
+    <script src="/js/context-menu.js" defer></script>
     <script src="/js/quack.js" defer></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/searchbar.css">
     <link rel="stylesheet" href="/css/feed.css">
+    <link rel="stylesheet" href="/css/context-menu.css">
     <link rel="stylesheet" media="print" href="/css/print.css">
     <title>Search</title>
 </head>
@@ -53,7 +55,7 @@
                                 if(array_key_exists("offset", $_GET)) {
                                     $offset = $_GET["offset"];
                                 }
-                                $stm = $db->prepare("SELECT user_id FROM user WHERE name LIKE :query LIMIT :limit OFFSET :offset");
+                                $stm = $db->prepare("SELECT user.user_id FROM user INNER JOIN login ON user.user_id = login.id WHERE user.name LIKE :query OR login.username LIKE :query LIMIT :limit OFFSET :offset");
                                 $stm->bindValue("query", "%".$_GET["query"]."%");
                                 $stm->bindValue("limit", $limit);
                                 $stm->bindValue("offset", $offset);
@@ -62,10 +64,10 @@
                                     $user = new User($values["user_id"]);
                             ?>
                             <li>
-                                <div>
+                                <div data-username="<?php echo htmlspecialchars($user->username); ?>">
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
                                         <img class="profile-picture" src="<?php echo $user->picture; ?>">
-                                        <span><?php echo htmlspecialchars($user->name); ?></span>
+                                        <span title="@<?php echo htmlspecialchars($user->username);?>"><?php echo htmlspecialchars($user->name); ?></span>
                                     </a>
                                     <p title="Bio"><?php echo htmlspecialchars($user->bio); ?></p>
                                 </div>
@@ -84,5 +86,12 @@
         </table>
     </main>
     <footer></footer>
+    <div id="context-menu">
+        <ul>
+            <li id="copy-username"><a onclick="contextMenuCopy(copyUsername);">Copy Username</a></li>
+            <li id="copy-postid"><a onclick="contextMenuCopy(copyPostId);">Copy PostID</a></li>
+            <li><a onclick="contextMenuClose();">Close Menu</a></li>
+        </ul>
+    </div>
 </body>
 </html>
