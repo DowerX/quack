@@ -1,7 +1,5 @@
 :root {
     --pointer-size: 100px;
-    --login-box-width: 300px;
-    --login-box-height: 430px;
 }
 
 html {
@@ -9,23 +7,36 @@ html {
 }
 
 main {
-    background-image: url("/img/ducks-bg.jpg");
-    background-size: cover;
-    z-index: 0;
+    background-image: url("/img/ducks-bg-seamless.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: calc(var(--pos-x) / 50) calc(var(--pos-y) / 50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
+}
+
+@keyframes scroll-bg {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100vw 200vh;
+    }
 }
 
 .blur-bg {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: 10;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
 }
 
 #pointer {
-    position: absolute;
+    position: fixed;
     top: calc(var(--pos-y) - (var(--pointer-size)/2));
     left: calc(var(--pos-x) - (var(--pointer-size)/2));
     width: var(--pointer-size);
@@ -36,12 +47,7 @@ main {
 }
 
 #login-box {
-    position: absolute;
-    width: var(--login-box-width);
-    height: var(--login-box-height);
     background-color: var(--background-color);
-    top: calc((100vh - var(--login-box-height)) / 2);
-    left: calc((100vw - var(--login-box-width)) / 2);
     z-index: 10;
     border-radius: 10px;
     filter: drop-shadow(0 0 5px var(--background-color));
@@ -53,7 +59,7 @@ main {
 }
 
 #login-box img {
-    margin: 30px auto;
+    margin: 10px auto;
     display: block;
 }
 
@@ -79,7 +85,7 @@ input {
 
 #register {
     display: block;
-    margin: auto;
+    margin: 10px auto 20px auto;
     width: fit-content;
     color: var(--separator-color);
     font-size: small;
