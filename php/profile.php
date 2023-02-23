@@ -69,7 +69,7 @@
                             <form id="new-post-form" action="javascript:makePost()">
                                 <textarea placeholder="Say something... [<500 characters]" name="content" form="new-post-form"></textarea>
                                 <label for="file" class="highlight preload"><img src="/img/add-image-90.png" class="invert">Attach Image</label>
-                                <input type="file" id="file" accept="image/jpg, image/jpeg, image/png">
+                                <input type="file" id="file" accept="image/jpg, image/jpeg, image/png, image/gif">
                                 <script>document.getElementById("file").addEventListener("change", encodeFile);</script>
                                 <input type="submit" value="Send" class="highlight preload">
                             </form>
