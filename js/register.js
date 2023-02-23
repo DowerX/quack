@@ -12,3 +12,17 @@ function register() {
         });
     });
 }
+function changePassword() {
+    fetch("/php/func/change-password-action.php", {
+        method: "POST",
+        body: new FormData(document.getElementsByTagName("form")[0]),
+    }).then((r)=>{
+        r.text().then((resp) => {
+            if (resp != "") {
+                alert(resp);
+            } else {
+                window.location = "/php/login.php";
+            }
+        });
+    });
+}

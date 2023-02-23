@@ -19,7 +19,7 @@
 <body>
     <main>
         <div class="blur-bg"></div>
-        <div id="login-box" style="--login-box-height: 570px !important">
+        <div id="login-box">
             <div class="highlight preload" onclick="quack()"><img class="invert" src="/img/duck90.png" alt="duck logo"></div>
             <div>Quack</div>
             <form action="javascript:register()" method="post">

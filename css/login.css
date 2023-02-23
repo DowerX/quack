@@ -83,10 +83,14 @@ input {
     color: var(--text-color)
 }
 
-#register {
+.register {
     display: block;
-    margin: 10px auto 20px auto;
+    margin: 10px auto;
     width: fit-content;
-    color: var(--separator-color);
+    color: var(--separator-color) !important;
     font-size: small;
+}
+
+.register:last-child {
+    margin-bottom: 20px;
 }
