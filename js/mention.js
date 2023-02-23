@@ -9,7 +9,7 @@ function replaceMentions(text) {
           replace: '<a href="/php/post.php?id=$1" class="mention">#$1</a>'
         },
         // spoiler:"some spoiler"
-        { regex: /spoiler:"(.+)"/g,
+        { regex: /spoiler:"(.+?)"/g,
           replace: '<mark class="spoiler">$1</mark>'
         },
         // new line

@@ -43,6 +43,7 @@
 
 .spoiler:hover{
     filter: blur(0rem);
+    cursor: none;
 }
 
 * {
