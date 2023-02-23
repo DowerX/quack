@@ -32,6 +32,15 @@
     color: var(--highlight-color) !important;
     pointer-events: all;
 }
+.spoiler {
+    filter: blur(.25rem);
+    background: transparent;
+    font-style: italic;
+    pointer-events: all;
+}
+.spoiler:hover{
+    filter: blur(0rem);
+}
 
 * {
     transition: color 300ms ease-out, filter 300ms ease-out, background-color 300ms ease-out, scale 300ms ease-out;

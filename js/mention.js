@@ -8,6 +8,10 @@ function replaceMentions(text) {
         { regex: /#([0-9]+)/,
           replace: '<a href="/php/post.php?id=$1" class="mention">#$1</a>'
         },
+        // spoiler:"some spoiler"
+        { regex: /spoiler:"(.+)"/,
+          replace: '<mark class="spoiler">$1</mark>'
+        },
         // URL
         { regex: /(https|http):\/\/([\wöüóőúéáűÖÜÓŐÚÉÁŰ\.]+)([\wöüóőúéáűÖÜÓŐÚÉÁŰ\/\.\?\=\#\&\%\-\;]+)?/,
           replace: (match, g1, g2, g3) => {
