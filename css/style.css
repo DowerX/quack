@@ -32,12 +32,15 @@
     color: var(--highlight-color) !important;
     pointer-events: all;
 }
+
 .spoiler {
     filter: blur(.25rem);
+    color: var(--text-color);
     background: transparent;
     font-style: italic;
     pointer-events: all;
 }
+
 .spoiler:hover{
     filter: blur(0rem);
 }
