@@ -90,6 +90,7 @@
         <ul>
             <li id="copy-username"><a onclick="contextMenuCopy(copyUsername);">Copy Username</a></li>
             <li id="copy-postid"><a onclick="contextMenuCopy(copyPostId);">Copy PostID</a></li>
+            <li id="share-post"><a onclick="contextMenuCopy(`${window.location.hostname}/php/post.php?id=${copyPostId}`);">Copy link to post</a></li>
             <li><a onclick="contextMenuClose();">Close Menu</a></li>
         </ul>
     </div>

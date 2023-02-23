@@ -8,6 +8,7 @@ function contextMenuOpen(e) {
     contextMenu.style = `--pos-x: ${e.clientX}px; --pos-y: ${e.clientY}px; display: block !important;`;
     document.getElementById("copy-username").style.display = "none";
     document.getElementById("copy-postid").style.display = "none";
+    document.getElementById("share-post").style.display = "none";
     
     if (e.target.dataset.username) {
         copyUsername = e.target.dataset.username;
@@ -17,6 +18,7 @@ function contextMenuOpen(e) {
     if (e.target.dataset.postid) {
         copyPostId = e.target.dataset.postid;
         document.getElementById("copy-postid").style.display = "list-item";
+        document.getElementById("share-post").style.display = "list-item";
     }
 }
 
