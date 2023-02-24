@@ -14,9 +14,15 @@
 
 #profile span {
     position: absolute;
-    transform: translateY(118px);
+    transform: translateY(90px);
     padding-left: 20px;
     font-size: xx-large;
+}
+
+#profile span::after {
+    content: var(--username);
+    display: block;
+    font-size: smaller;
 }
 
 #profile p::before {

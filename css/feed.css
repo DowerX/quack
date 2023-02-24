@@ -4,14 +4,14 @@
 
 .posts li {
     border-top: 1px solid var(--separator-color);
-    padding: 0 30px;
+    padding: 0 10px;
 }
 
 .posts li>div {
     background-color: var(--background-color);
     margin: 30px auto;
     padding: 0px;
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
     border-radius: 10px;
     filter: drop-shadow(0 0 3px var(--separator-color));
@@ -39,8 +39,14 @@
 .posts span {
     display: inline-block;
     margin: 30px 20px;
-    transform: translateY(-24px);
+    transform: translateY(-10px);
     word-wrap: break-word;
+}
+
+.posts span::after {
+    content: var(--username);
+    display: block;
+    font-size: smaller;
 }
 
 .posts a {
@@ -53,7 +59,7 @@
 }
 
 .posts .embed {
-    max-width: 400px;
+    max-width: 500px;
     width: 90%;
     border-radius: 5px;
     margin: auto;

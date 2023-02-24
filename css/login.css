@@ -11,11 +11,9 @@ main {
     background-size: contain;
     background-repeat: repeat;
     background-position: calc(var(--pos-x) / 50) calc(var(--pos-y) / 50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100vw;
     height: 100vh;
+    overflow-y: scroll;
 }
 
 @keyframes scroll-bg {
@@ -48,7 +46,11 @@ main {
 
 #login-box {
     background-color: var(--background-color);
-    z-index: 10;
+    z-index: 11;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto 50px auto;
+    padding: 10px;
     border-radius: 10px;
     filter: drop-shadow(0 0 5px var(--background-color));
 }
@@ -78,9 +80,9 @@ input {
     margin: 20px auto;
     border-radius: 20px;
     width: 90%;
-    padding: 10px;
+    padding: 12px;
     background-color: var(--separator-color-alt);
-    color: var(--text-color)
+    color: var(--text-color);
 }
 
 .register {

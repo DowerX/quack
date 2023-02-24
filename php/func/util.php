@@ -1,6 +1,8 @@
 <?php
     function getDB() {
-        return new SQLite3($_SERVER["DOCUMENT_ROOT"]."/php/func/data.db");
+        $db = new SQLite3($_SERVER["DOCUMENT_ROOT"]."/php/func/data.db");
+        $db->busyTimeout(60000);
+        return $db;
     }
 
     function getClientID() {
@@ -35,7 +37,7 @@
                 $this->name = $values["name"];
                 $this->username = $values["username"];
                 $this->bio = $values["bio"];
-                $this->picture = $values["picture"]!=SQLITE3_NULL ? "/php/image.php?id=".$values["picture"] : "";
+                $this->picture = "/php/image.php?id=".$values["picture"];
             }
 
         }

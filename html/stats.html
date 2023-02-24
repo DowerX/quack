@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="BENEDEK László">
+    <meta name="application-name" content="Quack Social">
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/duck90.png">
+    <script src="/js/color-scheme.js"></script>
+    <script src="/js/animation-preload.js"></script>
+    <script src="/js/mouse-pointer.js" defer></script>
+    <script src="/js/stats.js" defer></script>
+    <script src="/js/quack.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/outside.css">
+    <title>Statistics</title>
+</head>
+<body>
+    <nav>
+        <menu>
+            <li class="highlight preload"><a href="/php/login.php">Login</a></li>
+            <li class="highlight preload"><a href="/php/register.php">Register</a></li>
+            <li class="highlight preload"><a href="/php/change-password.php">Change password</a></li>
+            <li class="current-item highlight preload"><a href="/html/about.html">About</a></li>
+        </menu>
+    </nav>
+    <main>
+        <div class="blur-bg"></div>
+        <div id="menu-spacer"></div>
+        <div class="foreground">
+            <h1>Statistics about Quack</h1>
+            Live (refreshes every minute!)
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Users</td>
+                        <td>The number of registered users currently.</td>
+                        <td id="users"></td>
+                    </tr>
+                    <tr>
+                        <td>Posts</td>
+                        <td>The number of posts made by the userbase.</td>
+                        <td id="posts"></td>
+                    </tr>
+                    <tr>
+                        <td>Replies</td>
+                        <td>The number of replies writen.</td>
+                        <td id="replies"></td>
+                    </tr>
+                    <tr>
+                        <td>Images</td>
+                        <td>The number of images uploaded.</td>
+                        <td id="images"></td>
+                    </tr>
+                    <tr>
+                        <td>Likes</td>
+                        <td>The number of likes.</td>
+                        <td id="likes"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

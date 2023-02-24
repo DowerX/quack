@@ -10,7 +10,7 @@ function initColorScheme() {
     link.id = "colorScheme";
 
     if (ls.getItem("darkMode") != "true" && ls.getItem("darkMode") != "false") {
-        ls.setItem("darkMode", "true");
+        ls.setItem("darkMode", "false");
     }
 
     document.head.appendChild(link);

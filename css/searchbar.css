@@ -4,7 +4,6 @@
     display: block;
     width: calc(100vw - var(--side-bar-width));
     position: fixed;
-    border-left: 1px solid var(--separator-color);
     backdrop-filter: blur(50px);
     mask: linear-gradient(to bottom, black 50%, transparent 100%);
 }

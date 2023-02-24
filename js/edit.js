@@ -4,7 +4,7 @@ function editPicture() {
     if (filePicker == null) {
         filePicker = document.createElement("input");
         filePicker.setAttribute("type", "file");
-        filePicker.setAttribute("accept", "image/jpg, image/jpeg, image/png");
+        filePicker.setAttribute("accept", "image/jpg, image/jpeg, image/png, image/gif");
         filePicker.setAttribute("display", "none");
         document.body.appendChild(filePicker);
         filePicker.addEventListener("change", ()=>{

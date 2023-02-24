@@ -4,7 +4,7 @@
 
 @media (max-width: 720px) {
     :root {
-        --side-bar-width: 64px !important;
+        --side-bar-width: 64px;
     }
     
     #side-bar {
@@ -19,6 +19,9 @@
     height: calc(100vh - var(--footer-height) - 3px);
     border-right: 1px solid var(--separator-color);
     font-size: larger;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 101;
 }
 
 #side-bar li:hover {
@@ -39,7 +42,7 @@
     transform: translateY(3px);
 }
 
-#side-bar ul {
+#side-bar menu {
     line-height: 30px;
     margin: 10px 20px;
 }
