@@ -24,8 +24,19 @@
     filter: drop-shadow(0 0 10px var(--highlight-color)) !important;
 }
 
-.gradient-bg {
-    background: linear-gradient(90deg, var(--background-color) 50%, var(--text-color) 300%);
+.duck-bg {
+    background-image: url("/img/ducks-bg-seamless.jpg");
+    background-size: contain;
+    background-attachment: scroll;
+    background-repeat: repeat;
+}
+
+.blur-bg {
+    position: fixed;
+    width: 200vw;
+    height: 200vh;
+    z-index: 10;
+    backdrop-filter: blur(7px);
 }
 
 .mention {
@@ -55,6 +66,7 @@ html, body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font);
+    overflow-x: hidden;
 }
 
 main>table{
@@ -63,8 +75,7 @@ main>table{
 
 footer {
     position: fixed;
-    top: calc(100vh - var(--footer-height) - 3px);
-    height: calc(var(--footer-height) + 3px);
+    bottom: 0;
     width: 100vw;
     background-color: var(--background-color);
     border-top: 1px solid var(--separator-color);
@@ -77,6 +88,12 @@ footer {
 
 footer::after{
     content: "Made by BENEDEK László";
+}
+
+@media (hover:none) {
+    footer {
+        display: none !important;
+    }
 }
 
 table {

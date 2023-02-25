@@ -1,28 +1,44 @@
 #profile {
     padding: 20px;
-    margin-top: 28px;
     animation: float-in 300ms ease-out;
+    background-color: var(--background-color);
+    margin: 10px auto;
+    max-width: 460px;
+    width: fit-content;
+    padding: 30px;
+    border-radius: 10px;
 }
 
 #profile .profile-picture {
     width: 256px;
     aspect-ratio: 1;
     object-fit:cover;
-    border-radius: 100%;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
     filter: drop-shadow(0 0 10px var(--separator-color));
 }
 
-#profile span {
-    position: absolute;
-    transform: translateY(90px);
-    padding-left: 20px;
+#profile div {
     font-size: xx-large;
+    display: block;
+    text-align: center;
+    word-wrap:break-word;
+    border-radius: 10px;
 }
 
-#profile span::after {
+#profile div::after {
     content: var(--username);
     display: block;
     font-size: smaller;
+}
+
+#profile p {
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #profile p::before {
@@ -34,42 +50,16 @@
 }
 
 #follow-img {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
+    margin: auto;
+    display: block;
+    width: 24px;
+    height: 24px;
     background-image: var(--follow-image);
     background-size: cover;
-    transform: translateY(3px);
-    margin-right: 3px;
-}
-
-@media (max-width: 620px) {
-    #profile .profile-picture {
-        margin: auto;
-        display: block;
-    }
-
-    #profile span {
-        position: relative;
-        transform: none;
-        display: block;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    #profile p {
-        text-align: center;
-    }
-
-    #profile a.highlight {
-        margin: auto;
-        width: fit-content;
-        display: block;
-    } 
+    border-radius: 0 !important;
 }
 
 #new-post {
-    border-top: 1px solid var(--separator-color);
     padding: 15px 0 10px 0;
     animation: float-in 300ms ease-out;
 }
@@ -83,8 +73,7 @@
     display: block;
     padding: 15px;
     margin: auto;
-    width: 100%;
-    max-width: 300px;
+    width: 80%;
     height: 80px;
     resize: none;
     outline: none;
@@ -101,8 +90,7 @@
     display: block;
     border-radius: 10px;
     font-size: medium;
-    width: 100%;
-    max-width: 330px;
+    width: 80%;
     color: var(--text-color);
     background-color: var(--separator-color-alt);
 }
@@ -120,10 +108,9 @@
     display: block;
     border-radius: 10px;
     font-size: medium;
-    max-width: 330px;
+    width: 80%;
     color: var(--text-color);
     background-color: var(--separator-color-alt);
-    width: 100%;
 }
 
 #new-post img {

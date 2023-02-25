@@ -1,15 +1,20 @@
+#main-area {
+    z-index: 11;
+    position: relative;
+}
+
 .posts {
-    margin-bottom: 50px;
+    margin-bottom: 0;
+    padding-bottom: 50px;
 }
 
 .posts li {
-    border-top: 1px solid var(--separator-color);
     padding: 0 10px;
 }
 
 .posts li>div {
     background-color: var(--background-color);
-    margin: 30px auto;
+    margin: 10px auto;
     padding: 0px;
     max-width: 500px;
     width: 100%;

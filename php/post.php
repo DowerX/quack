@@ -28,7 +28,8 @@
 </head>
 <body>
     <main>
-        <table class="gradient-bg">
+        <div class="blur-bg"></div>
+        <table class="duck-bg">
             <tbody>
                 <tr>
                     <td id="side-bar">
@@ -64,7 +65,7 @@
                             }
                             $replies = $post->getReplies($limit, $offset);
                         ?>
-                        <ul class="posts gradient-bg">
+                        <ul class="posts">
                             <li>
                                 <div data-postid="<?php echo $post->id; ?>" data-username="<?php echo htmlspecialchars($user->username); ?>">
                                     <a href="/php/profile.php?id=<?php echo $user->id; ?>">
@@ -81,13 +82,15 @@
                                 </div>
                             </li>
                         </ul>
-                        <div id="new-post">
-                            <form id="new-post-form" action="javascript:makeReply(<?php echo $post->id; ?>)">
-                                <textarea placeholder="Say something... [1-500 characters]" name="content" form="new-post-form"></textarea>
-                                <input type="submit" value="Send" class="highlight preload">
-                            </form>
-                        </div>
                         <ul class="posts">
+                            <li>
+                                <div id="new-post">
+                                    <form id="new-post-form" action="javascript:makeReply(<?php echo $post->id; ?>)">
+                                        <textarea placeholder="Say something... [1-500 characters]" name="content" form="new-post-form"></textarea>
+                                        <input type="submit" value="Send" class="highlight preload">
+                                    </form>
+                                </div>
+                            </li>
                             <?php foreach($replies as $reply) {
                                 $reply_user = $reply->getUser();
                             ?>

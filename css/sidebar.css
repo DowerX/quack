@@ -16,12 +16,13 @@
     position: fixed;
     width: var(--side-bar-width);
     display: block;
-    height: calc(100vh - var(--footer-height) - 3px);
+    height: 200vh;
     border-right: 1px solid var(--separator-color);
     font-size: larger;
     white-space: nowrap;
     overflow: hidden;
     z-index: 101;
+    background-color: var(--background-color);
 }
 
 #side-bar li:hover {

@@ -9,7 +9,6 @@ html {
 main {
     background-image: url("/img/ducks-bg-seamless.jpg");
     background-size: contain;
-    background-repeat: repeat;
     background-position: calc(var(--pos-x) / 50) calc(var(--pos-y) / 50);
     width: 100vw;
     height: 100vh;
@@ -23,14 +22,6 @@ main {
     100% {
         background-position: 100vw 200vh;
     }
-}
-
-.blur-bg {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
-    backdrop-filter: blur(7px);
 }
 
 #pointer {

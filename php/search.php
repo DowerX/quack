@@ -23,7 +23,8 @@
 </head>
 <body>
     <main>
-        <table class="gradient-bg">
+        <div class="blur-bg"></div>
+        <table class="duck-bg">
             <tbody>
                 <tr>
                     <td id="side-bar">

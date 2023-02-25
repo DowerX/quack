@@ -30,7 +30,8 @@
 </head>
 <body>
     <main>
-        <table class="gradient-bg">
+        <div class="blur-bg"></div>
+        <table class="duck-bg">
             <tbody>
                 <tr>
                     <td id="side-bar">
@@ -53,30 +54,30 @@
                         </div>
                         <div id="search-bar-spacer"></div>
                         <?php $user = new User($_GET["id"]); ?>
-                        <div id="profile" class="gradient-bg">
+                        <div id="profile">
                             <a href="<?php if($client_id == $user->id) { echo "javascript:editPicture()"; }?>"><img class="profile-picture" src="<?php echo $user->picture; ?>"></a>
-                            <a href="<?php if($client_id == $user->id) { echo "javascript:editName()"; }?>"><span style="--username: '@<?php echo htmlspecialchars($user->username); ?>';" title="@<?php echo htmlspecialchars($user->username); ?>"><?php echo htmlspecialchars($user->name); ?></span></a>
+                            <a href="<?php if($client_id == $user->id) { echo "javascript:editName()"; }?>"><div style="--username: '@<?php echo htmlspecialchars($user->username); ?>';" title="@<?php echo htmlspecialchars($user->username); ?>"><?php echo htmlspecialchars($user->name); ?></div></a>
                             <a href="<?php if($client_id == $user->id) { echo "javascript:editBio()"; }?>"><p title="Bio"><?php echo htmlspecialchars($user->bio); ?></p></a>
                             <?php if ($user->id != $client_id) { ?>
-                                <a class="highlight preload" href="javascript:follow(<?php echo $user->id; ?>)" title="Follow/unfollow user">
-                                    <div id="follow-img" class="invert" <?php if ($user->isFollowedBy($client_id)) { ?> style="--follow-image: url('/img/checked-user-male-90.png')" <?php } else { ?> style="--follow-image: url('/img/add-user-male-90.png')" <?php } ?>>
-                                    </div>
-                                    Follow
+                                <a href="javascript:follow(<?php echo $user->id; ?>)" title="Follow/unfollow user">
+                                    <div id="follow-img" class="invert" <?php if ($user->isFollowedBy($client_id)) { ?> style="--follow-image: url('/img/checked-user-male-90.png')" <?php } else { ?> style="--follow-image: url('/img/add-user-male-90.png')" <?php } ?>></div>
                                 </a>
                             <?php } ?>
                         </div>
-                        <?php if ($user->id == $client_id) { ?>
-                        <div id="new-post">
-                            <form id="new-post-form" action="javascript:makePost()">
-                                <textarea placeholder="Say something... [<500 characters]" name="content" form="new-post-form"></textarea>
-                                <label for="file" class="highlight preload"><img src="/img/add-image-90.png" class="invert">Attach Image</label>
-                                <input type="file" id="file" accept="image/jpg, image/jpeg, image/png, image/gif">
-                                <script>document.getElementById("file").addEventListener("change", encodeFile);</script>
-                                <input type="submit" value="Send" class="highlight preload">
-                            </form>
-                        </div>
-                        <?php } ?>
                         <ul class="posts">
+                            <?php if ($user->id == $client_id) { ?>
+                                <li>
+                                    <div id="new-post">
+                                        <form id="new-post-form" action="javascript:makePost()">
+                                            <textarea placeholder="Say something... [<500 characters]" name="content" form="new-post-form"></textarea>
+                                            <label for="file" class="highlight preload"><img src="/img/add-image-90.png" class="invert">Attach Image</label>
+                                            <input type="file" id="file" accept="image/jpg, image/jpeg, image/png, image/gif">
+                                            <script>document.getElementById("file").addEventListener("change", encodeFile);</script>
+                                            <input type="submit" value="Send" class="highlight preload">
+                                        </form>
+                                    </div>
+                                </li>
+                            <?php } ?>
                             <?php
                                 $limit = getPostLimit();
                                 $offset = 0;

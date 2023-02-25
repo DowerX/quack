@@ -9,7 +9,8 @@
         if($values = $result->fetchArray(SQLITE3_ASSOC)) {
             $data = $values["data"];
             $split = explode(";", $data,2);
-            header("Content-type: ".substr($split[0], 6));
+            header("Cache-Control: max-age=604800, immutable");
+            header("Content-type: ".substr($split[0], 5));
             echo base64_decode(substr($split[1], 6));
         } else {
             return http_response_code(404);
