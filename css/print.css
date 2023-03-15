@@ -1,11 +1,14 @@
 * {
     background-color: white !important;
     color: black !important;
-    filter: none !important;
+    filter: saturate(0%) !important;
     border: none !important;
 }
 
-footer, #side-bar, #search-bar, #search-bar-spacer, #new-post, .interact{
+footer, #side-bar, #search-bar,
+#search-bar-spacer, #new-post,
+#select-page, #context-menu,
+.interact, .zoom, .blur-bg {
     display: none !important;
 }
 
