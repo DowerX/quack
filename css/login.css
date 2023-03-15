@@ -40,7 +40,7 @@ main {
     z-index: 11;
     position: relative;
     width: fit-content;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 20px auto;
     padding: 10px;
     border-radius: 10px;
     filter: drop-shadow(0 0 5px var(--background-color));
@@ -86,4 +86,12 @@ input {
 
 .register:last-child {
     margin-bottom: 20px;
+}
+
+fieldset {
+    border-radius: 10px;
+}
+
+fieldset ~ fieldset {
+    margin-top: 10px;
 }

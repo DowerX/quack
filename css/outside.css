@@ -11,6 +11,7 @@ html {
 
 menu {
     max-width: 80%;
+    height: 50px;
     margin: 0 auto;
     padding: 10px;
     display: flex;
@@ -135,6 +136,13 @@ a[href="/html/stats.html"] {
 }
 
 @media (max-width: 650px) {
+    .foreground>div {
+        display: none;
+    }
+    .foreground>p {
+        width: 100%;
+        margin-bottom: 10px;
+    }
     .reviews {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3, 1fr);
@@ -142,4 +150,10 @@ a[href="/html/stats.html"] {
     .reviews p {
         width: 100%;
     }
+
+}
+
+th {
+    background-color: var(--separator-color-alt);
+    border: 1px solid var(--separator-color);
 }
