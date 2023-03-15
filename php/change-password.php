@@ -34,12 +34,18 @@
             <div class="highlight preload" onclick="quack()"><img class="invert" src="/img/duck90.png" alt="duck logo"></div>
             <div>Quack</div>
             <form action="javascript:changePassword()" method="post">
-                <input type="text" placeholder="Username" name="username">
-                <input type="password" placeholder="Old password" name="old-password">
-                <input type="password" placeholder="New password [3-16]" name="new-password">
-                <input type="password" placeholder="Repeat password" name="password-repeat">
-                <input class="highlight preload" type="reset" value="Reset">
-                <input class="highlight preload" type="submit" value="Change password">
+                <fieldset>
+                    <legend>Old information:</legend>
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Old password" name="old-password">
+                </fieldset>
+                <fieldset>
+                    <legend>New information:</legend>
+                    <input type="password" placeholder="New password" name="new-password">
+                    <input type="password" placeholder="Repeat password" name="password-repeat">
+                </fieldset>
+                    <input class="highlight preload" type="reset" value="Reset">
+                    <input class="highlight preload" type="submit" value="Change password">
             </form>
         </div>
         <div class="foreground reviews">

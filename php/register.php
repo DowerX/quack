@@ -34,13 +34,19 @@
             <div class="highlight preload" onclick="quack()"><img class="invert" src="/img/duck90.png" alt="duck logo"></div>
             <div>Quack</div>
             <form action="javascript:register()" method="post">
-                <input type="text" placeholder="Username [3-16, HU alphabet]" name="username">
-                <input type="password" placeholder="Password [3-16]" name="password">
-                <input type="password" placeholder="Repeat password" name="password-repeat">
-                <input type="text" placeholder="Display Name [3-40]" name="name">
-                <input type="text" placeholder="Bio [<500]" name="bio">
-                <input class="highlight preload" type="reset" value="Reset">
-                <input class="highlight preload" type="submit" value="Register">
+                <fieldset>
+                    <legend>Login details:</legend>
+                    <input type="text" placeholder="Username" name="username">
+                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Repeat password" name="password-repeat">
+                </fieldset>
+                <fieldset>
+                    <legend>Profile information:</legend>
+                    <input type="text" placeholder="Display Name" name="name">
+                    <input type="text" placeholder="Bio" name="bio">
+                </fieldset>
+                    <input class="highlight preload" type="reset" value="Reset">
+                    <input class="highlight preload" type="submit" value="Register">
             </form>
         </div>
         <div class="foreground reviews">
